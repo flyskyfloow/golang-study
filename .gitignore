@@ -1,0 +1,5 @@
+# Binary output
+todo-api
+
+# Go build cache
+*.test
