@@ -27,3 +27,21 @@
 go test ./...
 go run ./cmd/app
 ```
+
+## Commit Message Generation Skill
+
+This repository integrates a commit message generation skill located at `.github/skills/commit-message-generation-skill.md`. This skill enables automatic generation of Conventional Commits style commit messages using Copilot/ChatGPT or compatible CLI tools.
+
+### Usage
+- Summarize your staged changes or provide a list of changed files.
+- Call the commit message generation skill (see `.github/skills/commit-message-generation-skill.md` for details).
+- Use the output as your commit message, e.g.:
+
+```bash
+git diff --cached --name-only > /tmp/commit_changes.txt
+CHANGES=$(cat /tmp/commit_changes.txt)
+git commit -m "$(copilot-commit-skill --input "$CHANGES")"
+```
+
+- For integration with Git hooks, see `.github/skills/prepare-commit-msg.example`.
+- For full style rules and prompt templates, see `.github/skills/copilot-commit-skill.md`.

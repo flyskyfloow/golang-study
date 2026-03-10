@@ -1,0 +1,13 @@
+# Example: Generate commit message using Copilot commit skill
+#
+# 1. Get staged changes summary:
+git diff --cached --name-only > /tmp/commit_changes.txt
+CHANGES=$(cat /tmp/commit_changes.txt)
+
+# 2. Generate commit message (replace with actual CLI call):
+# copilot-commit-skill --input "$CHANGES"
+
+# 3. Use output as commit message:
+git commit -m "$(copilot-commit-skill --input "$CHANGES")"
+
+# Replace 'copilot-commit-skill' with your actual CLI or API call.
